@@ -8,21 +8,65 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- include CSS dependencies-->
-    
+
     <link rel="stylesheet" href="./css/bootstrap.css">
     <link rel="stylesheet" href="./css/font-awesome.min.css">
     <link rel="stylesheet" href="./css/main.css">
 </head>
 
 <body>
-    <div class="container">
 
 
-        <h1> THIS IS THE INDEX.HTML PAGE</h1>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand pl-3" href="#">eSport Watcher</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto pl-5">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">
+                        Dropdown
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled" href="#">Disabled</a>
+                </li>
+            </ul>
+
+        </div>
+    </nav>
+    <div class="header">
+        <div class="py-3 header__text-container text-center">
+            <h1 class="header--primary py-2">Welcome to eSport Watcher</h1>
+            <h2 class="header--sub py-1">Stay updated with recent eSport tournaments</h2>
+    <a href ="#" class = "btn btn-outline-light mt-4">View the most recent games</a>
+        </div>
     </div>
+
     <!-- end container -->
     <main>
         <div class="container">
+       
+       <h2 class = "header--sub text-center mt-3">Check out the feed of your favorite teams</h2>
+       
         </div>
         <!-- end container -->
     </main>

@@ -1,0 +1,36 @@
+{
+  "name": "esports_landing",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WingChhun/eSports_landing.git"
+  },
+  "author": "James Chhun",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/WingChhun/eSports_landing/issues"
+  },
+  "scripts":{
+    "gulp":"gulp",
+    "start": "node app.js"
+  },
+  "homepage": "https://github.com/WingChhun/eSports_landing#readme",
+  "devDependencies": {
+    "browser-sync": "^2.23.6",
+    "gulp": "^3.9.1",
+    "gulp-sass": "^3.1.0"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "bootstrap": "^4.0.0",
+    "express": "^4.16.2",
+    "font-awesome": "^4.7.0",
+    "jquery": "^3.3.1",
+    "popper.js": "^1.12.9"
+  }
+}

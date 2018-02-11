@@ -2,11 +2,54 @@
 VARIABLES
 */
 
+$border-test:2px solid #ffd1c3;
+$border-test-2:2px solid orangered;
+//colors
+$color-black:#000;
+$color-white:#fff;
+$color-gray:#ddd;
+//reset
+*:before,
+*:after,
+* {
+    margin: 0;
+    padding: 0;
+    overflow-x: none;
+    box-sizing: inherit;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; //base font
+    font-size: 16px;
+}
+
 body {
     background: #ddd;
 }
 
-h1
-{
-    font-size:24px;
+//TYPOGRAPHY
+.header {
+    position: relative;
+    min-height: 475px;
+    background: linear-gradient(rgba($color-black, .4), rgba($color-black, .4)), url("https://images.unsplash.com/photo-1515295527612-cb8132ecb496?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=64e2c77196ad232a5320171d00690642&auto=format&fit=crop&w=751&q=80") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    color: white; //text
+    &__text-container {
+        width: 80%; //absolute center
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -70%);
+    }
+    &--primary {
+        font-size: 2.4rem;
+    }
+    &--sub {
+        font-size: 2rem;
+    }
 }

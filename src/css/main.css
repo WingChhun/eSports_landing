@@ -16,12 +16,12 @@ body {
   font-size: 16px; }
 
 body {
-  background: #ddd; }
+  background: #fff; }
 
 .header {
   position: relative;
   min-height: 475px;
-  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("https://images.unsplash.com/photo-1515295527612-cb8132ecb496?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=64e2c77196ad232a5320171d00690642&auto=format&fit=crop&w=751&q=80") no-repeat center center fixed;
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("https://am-a.akamaihd.net/image/?f=https://cdn.leagueoflegends.com/lolesports/s3fs-public/spr18_quicknotes_broadcasttime_header.png?WF.hiSUAreQxmLGYEGg5t42I8C9dG23a&resize=1066:") no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -34,6 +34,43 @@ body {
     left: 50%;
     transform: translate(-50%, -70%); }
   .header--primary {
-    font-size: 2.4rem; }
+    font-size: 2.4rem;
+    letter-spacing: 1px; }
   .header--sub {
-    font-size: 2rem; }
+    font-size: 2rem;
+    letter-spacing: 1px; }
+  .header--tertiary {
+    font-size: 1.6rem;
+    letter-spacing: 1px; }
+
+.feed__games {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around; }
+  .feed__games-item {
+    list-style: none;
+    display: flex;
+    align-content: center;
+    border: 2px solid gray;
+    justify-content: center;
+    flex: 1 0 25%;
+    max-width: 25%;
+    height: 50px;
+    padding: 8px 3.5px; }
+    .feed__games-item--active {
+      background-color: rgba(64, 224, 208, 0.6); }
+
+.feed__icon {
+  height: 30px;
+  width: 30px;
+  margin-right: 2%; }
+
+.feed__title {
+  letter-spacing: .25px;
+  font-weight: 500;
+  font-size: 18px; }
+
+.card__img {
+  max-height: 250px;
+  margin-bottom: 8px; }

@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "gulp": "gulp",
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",
@@ -15,10 +16,6 @@
   "bugs": {
     "url": "https://github.com/WingChhun/eSports_landing/issues"
   },
-  "scripts":{
-    "gulp":"gulp",
-    "start": "node app.js"
-  },
   "homepage": "https://github.com/WingChhun/eSports_landing#readme",
   "devDependencies": {
     "browser-sync": "^2.23.6",
@@ -26,11 +23,15 @@
     "gulp-sass": "^3.1.0"
   },
   "dependencies": {
+    "axios": "^0.17.1",
     "body-parser": "^1.18.2",
     "bootstrap": "^4.0.0",
     "express": "^4.16.2",
     "font-awesome": "^4.7.0",
+    "hltv": "^2.4.0",
+    "hltv-api": "^1.3.0",
     "jquery": "^3.3.1",
-    "popper.js": "^1.12.9"
+    "popper.js": "^1.12.9",
+    "request": "^2.83.0"
   }
 }

@@ -4,9 +4,11 @@
  
  # Objective
  
-  - Improve working with Node  / express
+  - Improve working with Node  / express alongside POSTMAN.
   - Improve with working with external APIs that are fairly large and more complex
-  - Improve workflow with Gulp, Ajax and Bootstrap
+  - Improve overall workflow through inclusion of Gulp and Bootstrap when necessary
+         - Improve making AJAX requests, vanillaJS, and jQuery altogether
+  
  
  #Timeline
  

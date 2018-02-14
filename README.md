@@ -14,8 +14,13 @@
       - initialized and started project.
       -project currently fetches leagues from hand selected LoL and OW leagues (NA LCS, EU LCS, and The Overwatch League).
       - Found hltv-api and hltv api's from npmjs.org
-
+   -2/14 -> 2/17
+       - Wireframing front end design, looking/ testing for API's that include LoL eSport news, conclude none for OW
+          -Web app will include headline/news from LoL and CS:GO scenes.
+              -All CSGO information provided from HLTV through use of hltv and hltv-api found on npmjs.org
 
 # Goal
-
- - WIll make this app public, mainly for personal use among friends, but I hope to offer a web app that displays relevant eSport tournament info in a more elegant format.
+ 
+ - Connect relevant eSport information, including news, ranks, standings, matches and tournaments on one website with a attractive UI and provide a pleasant UX.
+ - WIll make this app public, mainly for personal use and among friends
+ - I believe this app will be fairly useful for anybody who stumbles upon it interested in eSports

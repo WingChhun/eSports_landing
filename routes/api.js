@@ -1,12 +1,14 @@
+//packages
 const express = require("express"),
     router = express.Router({
         mergeParams: true
     });
 const bodyParser = require('body-parser');
 const request = require('request');
-const axios = require('axios');
-var apiURL = "https://api.pandascore.co.";
-var token = "?token=xVKzGN39CghZCqeRojVpHJ08HnGsgddGS0UUkIjNisp7nF8tktQ";
+
+//Global variables
+const apiURL = "https://api.pandascore.co.";
+const token = "?token=xVKzGN39CghZCqeRojVpHJ08HnGsgddGS0UUkIjNisp7nF8tktQ";
 
 
 
@@ -96,4 +98,18 @@ router.get("/league/lol", (req, res) => {
     });
 })
 //export all routes
+
+/*
+Get league API
+*/
+
+router.get("/news", (req, res) => {
+    api.getNews()
+        .then((data) => {
+            res.json(data);
+        })
+        .catch((err) => {
+            console.log(err);
+        })
+});; //end get news
 module.exports = router;

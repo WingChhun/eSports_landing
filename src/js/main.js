@@ -51,8 +51,10 @@ function start() {
             .then((data) => {
                 console.log("fetching all league data");
                 //create new array, I only want specific leagues
+                //Leagues include NA LCS , EU LCS, The OW League
                 const filteredArr = data.filter((value) => {
-                    template += createTemplate(value);
+                    return (value.name == "NA LCS") || (value.name == "EU LCS")
+                    ||(value.name =="The OW League");
                 }); //end filter
                 filteredArr.forEach((element) => {
                     template += createTemplate(element);

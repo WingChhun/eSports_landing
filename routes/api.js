@@ -5,12 +5,17 @@ const express = require("express"),
     });
 const bodyParser = require('body-parser');
 const request = require('request');
-
+const rp = require("request-promise");
 //Global variables
-const apiURL = "https://api.pandascore.co.";
-const token = "?token=xVKzGN39CghZCqeRojVpHJ08HnGsgddGS0UUkIjNisp7nF8tktQ";
+const apiURL = process.env.API_URL || "https://api.pandascore.co.";
+const token = process.env.API_TOKEN || "?token=xVKzGN39CghZCqeRojVpHJ08HnGsgddGS0UUkIjNisp7nF8tktQ";
 
-
+//Global arrays to be populated
+let allLeaguesArr = []; //array containing all leagues
+let allTournamentsArr = []; //array containing all tournaments 
+let allTeamsArr = []; //array containing all Teams
+let allMatchesArr = []; //array containing all matches
+let allPlayers = [] //array containing all players
 
 //base route is /api
 //Root /api route
@@ -18,25 +23,88 @@ router.get("/", (req, res) => {
 
     res.send("Router route");
 });
+
+/*
+- /GET /api/leagues
+ - Make request to ALl League of legends leagues
+    - Only return NA LCS and EU LCS
+    - Use array.find(), push both values into an empty array to be returned
+ - Make request to all OW leagues
+    - Only return 'The Overwatch League'
+    -  Use array.find(), push into array to be returned
+
+ - After receiving both arrays and filtering
+    - Concatenate both leagues into a single array
+        -Return this array, much more managable length
+            -Expected length of 3
+*/
 router.get("/leagues", (req, res) => {
 
-    const API_REQUEST = apiURL + "/leagues" + token;
-    var body2;
-    request(API_REQUEST, {
+    //variables
+    const API_LEAGUE_ID = 1;
+    const API_OW_ID = 14;
+
+    const API_REQUEST_LEAGUE = apiURL + "/videogames/" + API_LEAGUE_ID + "/leagues" + token;
+    const API_REQUEST_OW = apiURL + "/videogames/" + API_OW_ID + "/leagues" + token;
+    //Final array to be returned as json
+    //test, see request URLS
+    console.log("LEAGUE REQUEST \n\n" + API_REQUEST_LEAGUE);
+    console.log("OW REQUEST \n\n" + API_REQUEST_OW);
+
+    var options_LEAGUE = {
+        url: API_REQUEST_LEAGUE,
+        headers: {
+            'User-Agent': 'Request-Promise'
+        },
         json: true
-    }, (err, response, body) => {
-        if (err) {
-            return console.log(err);
-        }
-        //body containers data we want, need to manipulate array for league data
-        console.log("Established connection");
-        const leagueArr = body.filter((value) => {
-            return value.videogame.name = "LoL" && value.videogame.slug == "league-of-legends";
+    }
+    var options_OW = {
+        url: API_REQUEST_OW,
+        headers: {
+            'User-Agent': 'Request-Promise'
+        },
+        json: true
+    }
+    rp(options_OW)
+        .then((data) => {
+
+            const owArr = data.find((element) => {
+                return element.name == 'The OW League';
+            });
+
+            allLeaguesArr.push(owArr);
+            console.log(allLeaguesArr);
+
+        })
+        .catch((err) => {
+            //error, send error
+            console.log("Error fetching data from OW");
+            console.log(err);
+            res.redirect("/");
         });
-        console.log(leagueArr);
-        //res.send(body);
-        res.send(leagueArr);
-    }); //end request
+    //Crawl webpage
+    rp(options_LEAGUE)
+        .then((data) => {
+            //received league data, return array with NA LCS and EU LCS leagues
+
+
+            const leagueArr = data.filter((element) => {
+                return element.name == "NA LCS" || element.name == "EU LCS" || element.name == "NA Scouting Grounds";
+            });
+            allLeaguesArr = allLeaguesArr.concat(leagueArr);
+
+            //end /GET leagues
+            res.json(allLeaguesArr);
+        })
+        .catch((err) => {
+            //error, send the error 
+            console.log("Error fetching data from league");
+            console.log(err);
+            res.redirect("/");
+        });
+
+
+
 
 });
 //videogame leagues
@@ -57,59 +125,15 @@ router.get("/videogames/:videogame_id/leagues", (req, res) => {
     });
 });
 router.get("/tournaments", (req, res) => {
-    //api url
-    //Video game ids
-    //1 = LoL, 4 = Dota2  14 = OW
-    const leagueId = 1;
-    const dotaId = 4;
-    const owId = 14;
-    const API_REQUEST = apiURL + "/videogames/" + leagueId + "/tournaments" + token;
-    request(API_REQUEST, {
-        json: true
-    }, (err, resp, body) => {
-        if (err) {
-            return console.log(err);
-        } //else
-        //only return 2018 series
-        const leagueArr = body.filter((value) => {
-            return value.serie.year = 2018;
-        });
-        res.send(leagueArr);
-    });
+    /*
+     - Get ALl tournaments for the associated leagues
+         - To do this, Use the global allLeaguesArr
+            -Loop through allLeaguesArr, get each league_id
+            -Use this leagueId, to make a request to /leagues/:league_id/tournaments
+                -after getting all data, push into a single array, to display all tournaments
+                -Return this array, send as json
+    */
 });
-router.get("/lol/games", (req, res) => {
-    const API_REQUEST = apiURL + "/lol/spells" + token;
-    request(API_REQUEST, {
-        json: true
-    }, (err, resp, body) => {
-        console.log(API_REQUEST);
-        res.send(body);
-    });
-})
 
-//Get NA-LCS
-router.get("/league/lol", (req, res) => {
-    //get NALCS league
-    const API_REQUEST = apiURL + "/leagues/289" + token;
-    request(API_REQUEST, {
-        json: true
-    }, (err, resp, body) => {
-        res.send(body); //send na lcs
-    });
-})
-//export all routes
 
-/*
-Get league API
-*/
-
-router.get("/news", (req, res) => {
-    api.getNews()
-        .then((data) => {
-            res.json(data);
-        })
-        .catch((err) => {
-            console.log(err);
-        })
-});; //end get news
 module.exports = router;

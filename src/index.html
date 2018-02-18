@@ -63,11 +63,134 @@
 
     <!-- end container -->
     <main>
+        <!-- load spinner -->
+        <!--<div class="loader"></div> -->
+
+
+
         <!--<div class="container">-->
         <div id="section__feed" class="py-3">
-            <div class="container">
-                <h3 class="header--tertiary text-center my-3 mb-4">Check out the feed of your favorite teams</h3>
+            <ul class="container">
+                <h3 class="header--tertiary text-center my-3 mb-4">This site includes data from the leagues listed below</h3>
                 <br>
+
+                <br>
+
+                <br>
+                <section class="section__feed">
+                    <ul class="feed__container" id="feed__data">
+                        <li class="feed__item">
+                            <a href="http:www.hltv.org">
+                                <img src="./img/hltv.png" class="feed__img" alt="hltv">
+                            </a>
+                            <!-- end link -->
+
+                        </li>
+                        <!-- end feed__item-->
+                        <li class="feed__item">
+                            <a href="http:www.hltv.org">
+                                <img src="./img/hltv.png" class="feed__img" alt="hltv">
+                            </a>
+                            <!-- end link -->
+
+                        </li>
+                        <!-- end feed__item-->
+                        <li class="feed__item">
+                            <a href="http:www.hltv.org">
+                                <img src="./img/hltv.png" class="feed__img" alt="hltv">
+                            </a>
+                            <!-- end link -->
+
+                        </li>
+                        <!-- end feed__item-->
+                        <li class="feed__item">
+                            <a href="http:www.hltv.org">
+                                <img src="./img/hltv.png" class="feed__img" alt="hltv">
+                            </a>
+                            <!-- end link -->
+
+                        </li>
+                        <!-- end feed__item-->
+                        <li class="feed__item">
+                            <a href="http:www.hltv.org">
+                                <img src="./img/hltv.png" class="feed__img" alt="hltv">
+                            </a>
+                            <!-- end link -->
+
+                        </li>
+                        <!-- end feed__item-->
+                    </ul>
+                </section>
+                <!-- end feed -->
+                <br>
+                <br>
+                <br>
+                <br>
+                <!-- accordion cutoff -->
+                <div id="accordion">
+                    <div class="card">
+                        <div class="card-header" id="headingOne">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    Collapsible Group Item #1
+                                </button>
+                            </h5>
+                        </div>
+
+                        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                            <div class="card-body">
+                                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute,
+                                non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch
+                                3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda
+                                shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt
+                                sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer
+                                farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus
+                                labore sustainable VHS.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header" id="headingTwo">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    Collapsible Group Item #2
+                                </button>
+                            </h5>
+                        </div>
+                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                            <div class="card-body">
+                                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute,
+                                non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch
+                                3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda
+                                shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt
+                                sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer
+                                farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus
+                                labore sustainable VHS.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header" id="headingThree">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    Collapsible Group Item #3
+                                </button>
+                            </h5>
+                        </div>
+                        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                            <div class="card-body">
+                                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute,
+                                non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch
+                                3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda
+                                shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt
+                                sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer
+                                farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus
+                                labore sustainable VHS.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- end row -->
                 <ul class="feed__games">
                     <li class="feed__games-item feed__games-item--active" data-id="0">
 
@@ -89,13 +212,8 @@
                     </li>
                 </ul>
                 <br>
-                <br>
-                <div class="row" id="feed__data">
+        </div>
 
-                </div>
-                <!--end container -->
-            </div>
-            <!-- end row -->
         </div>
         <!--end container -->
         <!-- end col-md-9
@@ -107,19 +225,44 @@
     </main>
     <!-- end main -->
 
-    <footer>
-
+    <footer class="footer">
+        <ul class="footer__social-container">
+            <li class="footer__social-link">
+                <a href="">
+                    <i class="fa fa-github-square footer__img"></i>
+                </a>
+            </li>
+            <li class="footer__social-link">
+                <a href="">
+                    <i class="fa fa-instagram footer__img"></i>
+                </a>
+            </li>
+            <li class="footer__social-link">
+                <a href="">
+                    <i class="fa fa-linkedin-square footer__img"></i>
+                </a>
+            </li>
+            <li class="footer__social-link">
+                <a href="">
+                    <i class="fa fa-codepen footer__img"></i>
+                </a>
+            </li>
+        </ul>
+        <!-- end container -->
+        <p class="footer__copyright  text-center">Data fetched from HLTV and PandaScore</p>
+        <br>
+        <p class="footer__copyright text-center">Website designed and developed by James Chhun, &copy; 2018</p>
 
     </footer>
     <!-- scripts here -->
-    <script src="./js/vendors/jquery.min.js"></script>
-    <script src="./js/vendors/bootstrap.min.js"></script>
-    <script src="./js/vendors/popper.min.js"></script>
+    <script src="./js/vendors/jquery.min.js "></script>
+    <script src="./js/vendors/bootstrap.min.js "></script>
+    <script src="./js/vendors/popper.min.js "></script>
     <!-- include api scripts -->
-    <script src="./js/classes/api_panda.js"></script>
+    <script src="./js/classes/api_panda.js "></script>
 
-    <script src="./js/classes/api_hltv.js"></script>
-    <script src="./js/main.js"></script>
+    <script src="./js/classes/api_hltv.js "></script>
+    <script src="./js/main.js "></script>
 </body>
 
 </html>

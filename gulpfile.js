@@ -2,13 +2,14 @@ const gulp = require("gulp");
 const sass = require("gulp-sass");
 const browserSync = require('browser-sync').create();
 
-gulp.task ('test', ()=>
-{
+gulp.task('test', () => {
     console.log("this is the gulp!");
 })
 //compile sass and stream data to browserSync
 gulp.task('sass', () => {
-    return gulp.src(["node_modules/bootstrap/scss/bootstrap.scss", "src/scss/*.scss"])
+    return gulp.src(["node_modules/bootstrap/scss/bootstrap.scss", "src/scss/*  .scss",
+            "src/scss/abstracts/*.scss", "src/scss/components/*.scss"
+        ])
         .pipe(sass())
         .pipe(gulp.dest('src/css'))
         .pipe(browserSync.stream());

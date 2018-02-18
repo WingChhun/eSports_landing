@@ -1,6 +1,65 @@
 /*
 VARIABLES
 */
+.loader,
+.loader:before,
+.loader:after {
+  background: #2B59C3;
+  -webkit-animation: load1 1s infinite ease-in-out;
+  animation: load1 1s infinite ease-in-out;
+  width: 1em;
+  height: 4em; }
+
+.loader {
+  color: #FFEECF;
+  text-indent: -9999em;
+  margin: 88px auto;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 11px;
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-animation-delay: -0.16s;
+  animation-delay: -0.16s;
+  z-index: 1000; }
+
+.loader:before,
+.loader:after {
+  position: absolute;
+  top: 0;
+  content: ''; }
+
+.loader:before {
+  left: -1.5em;
+  -webkit-animation-delay: -0.32s;
+  animation-delay: -0.32s; }
+
+.loader:after {
+  left: 1.5em; }
+
+@-webkit-keyframes load1 {
+  0%,
+  80%,
+  100% {
+    box-shadow: 0 0;
+    height: 4em; }
+  40% {
+    box-shadow: 0 -2em;
+    height: 5em; } }
+
+@keyframes load1 {
+  0%,
+  80%,
+  100% {
+    box-shadow: 0 0;
+    height: 4em; }
+  40% {
+    box-shadow: 0 -2em;
+    height: 5em; } }
+
 *:before,
 *:after,
 * {
@@ -59,7 +118,7 @@ body {
     height: 50px;
     padding: 8px 3.5px; }
     .feed__games-item--active {
-      background-color: rgba(64, 224, 208, 0.6); }
+      background-color: rgba(64, 224, 208, 0.3); }
 
 .feed__icon {
   height: 30px;
@@ -74,3 +133,40 @@ body {
 .card__img {
   max-height: 250px;
   margin-bottom: 8px; }
+  .card__img--2 {
+    max-width: 270px; }
+
+/*
+FOOTER
+*/
+.footer {
+  margin-top: 2rem;
+  padding: 4rem;
+  min-height: 150px;
+  background-color: #1B242F; }
+  .footer__social-container {
+    margin: 2rem auto;
+    width: 80%;
+    height: 80px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #262F38; }
+  .footer__social-link {
+    flex: 1 0 22.5%;
+    max-width: 47.5%;
+    text-align: center; }
+    .footer__social-link:not(.footer__social-link:last-child) {
+      margin-right: 2.5%; }
+    .footer__social-link a {
+      font-size: 20px;
+      padding: 12.5px 20px; }
+      .footer__social-link a:hover {
+        border: 2px solid #ffd1c3; }
+  .footer__img {
+    color: white;
+    font-size: 35px; }
+  .footer__copyright {
+    color: white;
+    margin-bottom: 0; }

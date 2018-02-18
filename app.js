@@ -12,7 +12,7 @@ app.use(bodyParser.urlencoded({
     extended: true
 }));
 //app.set('view engine', 'ejs'); //default template ejs
-app.use(express.static(__dirname + '/views'));
+//app.use(express.static(__dirname + '/views'));
 app.use(express.static(__dirname + '/src'));
 //api routes
 
@@ -20,7 +20,7 @@ app.use("/api", apiRoutes);
 app.use("/csgo", csRoutes);
 //ROUTES
 app.get('/', (req, res) => {
-    res.render("src/index.html");
+    res.render("index.html");
 });
 
 

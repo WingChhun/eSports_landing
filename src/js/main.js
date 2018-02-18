@@ -16,7 +16,8 @@ function start() {
     const $sectionFeed = document.querySelector("#feed__data");
     this.init = function () {
         //run itself function
-        this.getAllLeagues();
+       // this.getAllLeagues();
+        //this.getLoLLeagues();
     }
 
     this.getLoLLeagues = function () {
@@ -53,8 +54,8 @@ function start() {
                 //create new array, I only want specific leagues
                 //Leagues include NA LCS , EU LCS, The OW League
                 const filteredArr = data.filter((value) => {
-                    return (value.name == "NA LCS") || (value.name == "EU LCS")
-                    ||(value.name =="The OW League");
+                    return (value.name == "NA LCS") || (value.name == "EU LCS") ||
+                        (value.name == "The OW League");
                 }); //end filter
                 filteredArr.forEach((element) => {
                     template += createTemplate(element);
@@ -68,14 +69,14 @@ function start() {
     }
     this.createTemplate = function (value) {
         //receive data, return a string to add to template
-        const strTemplate = `  <div class="col-xs-6 col-sm-6  col-md-4">
+        const strTemplate = `  <div class="col-xs-6 col-sm-6  col-md-4 my-3">
     <div class="card p-2">
         <img class="card-img-top img-fluid card__img" src="${value.image_url}" alt="" data-leagueID="${value.id}">
         <div class="card-block">
-            <h4 class="card-title">${value.name}</h4>
+            <h4 class="card-title pt-1">${value.name}</h4>
             <br>
-            <a target = "_blank"href ="${value.url} class  = " btn btn-info">Visit Official Site</a>
-            <p class="card-text">blank text</p>
+            <a target = "_blank"href ="${value.url} "class  = "btn btn-info">Visit Official Site</a>
+            
                 
         </div>
     </div>

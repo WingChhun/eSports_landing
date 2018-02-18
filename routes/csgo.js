@@ -4,6 +4,7 @@ const express = require('express'),
     }),
     bodyParser = require("body-parser"),
     HLTV = require("hltv-api"),
+    hltv2 = require("hltv"),
     hltvMatch = require("hltv-match"),
     hltvUpcoming = require("hltv-upcoming-games");
 
@@ -12,34 +13,14 @@ const express = require('express'),
 router.get('/', (req, res) => {
     HLTV.getNews((news) => {
         res.json(news);
+console.log(news.length);
     });
 });
 router.get('/results', (req, res) => {
     HLTV.getResults((results) => {
         res.json(results);
+    console.log(results.length);
     })
-}) //end results
-
-
-
-router.get("/:matchId(*)", (req, res) => {
-    console.log(req.params.matchId);
-    let url = "https://www.hltv.org/" + req.params.matchId;
-    console.log("Url being opened... " + url);
-    //parse match info from hltv
-    hltvMatch(url, function (err, data) {
-
-        if (err) {
-            throw err;
-            console.log(err);
-        }
-        res.send(data);
-    });
-});
-router.get("/upcoming", (req, res) => {
-    hltvUpcoming.getUpcoming((gamesAttr) => {
-        res.json(gamesAttr);
-    });
-});
+}); //end results
 //export router 
 module.exports = router;

@@ -47,9 +47,10 @@ router.get("/:id/tournaments", leagueHelpers.getLeagueTournaments);
  */
 
 //videogame leagues
-
+router.get("/series/:series_    id", leagueHelpers.getSeries);
 router.get("/tournaments/:tournament_id/matches", leagueHelpers.getTournamentMatches);
 router.get("/leagues/:league_id/series", leagueHelpers.getLeagueSeries);
+router.get("/matches/upcoming",leagueHelpers.getMatchesUpcoming);
 router.get("/tournaments/:league_id/teams", leagueHelpers.getTournamentTeams);
 router.get("/matches/:match_id/players", leagueHelpers.getMatchPlayers);
 module.exports = router;

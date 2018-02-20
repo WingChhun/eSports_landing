@@ -144,10 +144,67 @@
                res.redirect("/api/leagues");
            });
    };
+   exports.getSeries = (req, res) => {
+       //Passed in a :id for the series, look it up and send data
+       let seriesArr = [];
+       let API_REQUEST_SERIES = apiURL + "/series/" + req.params.series_id + token;
+       options.url = API_REQUEST_SERIES;
+       rp(options)
+           .then((data) => {
+               res.json(data);
+           }).catch((err) => {
+               console.log(err);
+               res.redirect("/api/leagues");
+           });
+   }
    exports.getLeagueSeries = (req, res) => {
        //req.params.league_id
-   };
 
+   };
+   exports.getTournamentMatches = (req, res) => {
+       let seriesArr = [];
+       let API_REQUEST_tournament = apiURL + "/tournaments/" + req.params.tournament_id + "/matches" + token;
+       options.url = API_REQUEST_tournament;
+       rp(options)
+           .then((matches) => {
+               console.log("getTournament matches length +\n" + matches.length);
+               res.json(matches);
+           })
+           .catch((err) => {
+               console.log(err);
+               res.redirect("/api/leagues");
+           })
+   }
+   exports.getMatchesUpcoming = (req, res) => {
+       let seriesArr = [];
+       let API_REQUEST_tournament = apiURL + "/matches/" + "upcoming" + token;
+       options.url = API_REQUEST_tournament;
+       rp(options)
+           .then((upcomingMatches) => {
+               console.log("getTournament upcomingMatches length +\n" + upcomingMatches.length);
+               //I only want array of relevant leagueIds
+               //Known league IDS = 289, 290 and 4101
+               const upcoming = upcomingMatches.filter((match) => {
+                   return match.league_id == 289 || match.league_id == 290 || match.league_id == 4101;
+               });
+               console.log("getTournament upcomingMatches length +\n" + upcoming.length);
+               res.json(upcoming);
+           })
+           .catch((err) => {
+               console.log(err);
+               res.redirect("/api/leagues");
+           })
+   }
    exports.getMatchPlayers = (req, res) => {
        //req.params.match_id
+       let API_REQUEST_tournament = apiURL + "/matches/" + req.params.match_id + "/players" + token;
+       options.url = API_REQUEST_tournament;
+       rp(options)
+           .then((players) => {
+               res.json(players);
+           })
+           .catch((err) => {
+               console.log(err);
+               res.redirect("/api/leagues");
+           })
    };

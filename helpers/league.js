@@ -104,3 +104,50 @@
            });
 
    };
+   /*
+      router.get("/tournaments/:tournament_id/matches", leagueHelpers.getTournamentMatches);
+      router.get("/leagues/:league_id/series", leagueHelpers.getLeagueSeries);
+      router.get("/tournaments/:tournament_id/teams", leagueHelpers.getTournamentTeams);
+      router.get("/matches/:match_id/players", leagueHelpers.getMatchPlayers);
+   */
+   exports.getTournamentMatches = (req, res) => {
+       //req.params.tournament_id
+       let tournamentMatches = [];
+       let API_REQUEST_TOURNAMENT = apiURL + "/tournaments/" + req.params.tournament_id + "/matches" + token;
+       options.url = API_REQUEST_TOURNAMENT;
+   };
+   exports.getTournamentTeams = (req, res) => {
+       let tournamentArr = [];
+       let API_REQUEST_TOURNAMENT = apiURL + "/leagues/" + req.params.league_id + "/tournaments/" + token;
+       options.url = API_REQUEST_TOURNAMENT;
+       rp(options)
+
+           .then((data) => {
+               //Return JSON of the tournaments with year 2018
+               tournamentArr = data.filter((value) => {
+                   return value.serie.year == 2018;
+               });
+               //Have 2018 tournamens
+               //Now need to create a new array and only push the teams
+               const teamArr = [];
+               for (let tournament of tournamentArr) {
+
+                   teamArr.push(tournament.teams);
+               }; //end loop
+
+               res.json(teamArr);
+
+
+
+           }).catch((err) => {
+               console.log(err);
+               res.redirect("/api/leagues");
+           });
+   };
+   exports.getLeagueSeries = (req, res) => {
+       //req.params.league_id
+   };
+
+   exports.getMatchPlayers = (req, res) => {
+       //req.params.match_id
+   };
